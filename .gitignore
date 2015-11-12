@@ -1,3 +1,5 @@
+/core/src/main/gen
+/app/src/main/gen
 /core/build
 /app/build
 /.idea
