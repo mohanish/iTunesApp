@@ -9,6 +9,12 @@ import java.util.List;
  */
 public class FeedEntity {
 
+    /**
+     * name : {"label":"iTunes Store"}
+     * uri : {"label":"http://www.apple.com/itunes/"}
+     */
+
+    private AuthorEntity author;
 
     /**
      * im:name : {"label":"Unroll.Me"}
@@ -26,12 +32,7 @@ public class FeedEntity {
      */
 
     private List<EntryEntity> entry;
-    /**
-     * name : {"label":"iTunes Store"}
-     * uri : {"label":"http://www.apple.com/itunes/"}
-     */
 
-    private AuthorEntity author;
     /**
      * label : 2015-11-06T22:29:39-07:00
      */
@@ -126,4 +127,6 @@ public class FeedEntity {
     public List<LinkEntity> getLink() {
         return link;
     }
+
+
 }

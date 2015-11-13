@@ -12,13 +12,13 @@ public class ReleaseDateEntity extends SugarRecord<ReleaseDateEntity> {
      * label : November 4, 2015
      */
 
-    private AttributesEntity attributes;
+    private ReleaseDateAttributesEntity attributes;
 
     public void setLabel(String label) {
         this.label = label;
     }
 
-    public void setAttributes(AttributesEntity attributes) {
+    public void setAttributes(ReleaseDateAttributesEntity attributes) {
         this.attributes = attributes;
     }
 
@@ -26,8 +26,20 @@ public class ReleaseDateEntity extends SugarRecord<ReleaseDateEntity> {
         return label;
     }
 
-    public AttributesEntity getAttributes() {
+    public ReleaseDateAttributesEntity getAttributes() {
         return attributes;
+    }
+
+    public static class ReleaseDateAttributesEntity {
+        private String label;
+
+        public void setLabel(String label) {
+            this.label = label;
+        }
+
+        public String getLabel() {
+            return label;
+        }
     }
 
 

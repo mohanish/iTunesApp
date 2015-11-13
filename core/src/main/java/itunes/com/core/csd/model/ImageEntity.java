@@ -1,24 +1,24 @@
 package itunes.com.core.csd.model;
 
-import com.orm.SugarRecord;
+import com.orm.dsl.Ignore;
 
 /**
  * Created by root on 11/11/15.
  */
-public class ImageEntity extends SugarRecord<ImageEntity> {
+public class ImageEntity {
 
     private String label;
     /**
      * height : 53
      */
-
-    private AttributesEntity attributes;
+    @Ignore
+    private ImagesAttributesEntity attributes;
 
     public void setLabel(String label) {
         this.label = label;
     }
 
-    public void setAttributes(AttributesEntity attributes) {
+    public void setAttributes(ImagesAttributesEntity attributes) {
         this.attributes = attributes;
     }
 
@@ -26,8 +26,21 @@ public class ImageEntity extends SugarRecord<ImageEntity> {
         return label;
     }
 
-    public AttributesEntity getAttributes() {
+    public ImagesAttributesEntity getAttributes() {
         return attributes;
+    }
+
+    public static class ImagesAttributesEntity {
+        // Attributes used in Images Entity
+        private String height;
+
+        public void setHeight(String height) {
+            this.height = height;
+        }
+
+        public String getHeight() {
+            return height;
+        }
     }
 
 }

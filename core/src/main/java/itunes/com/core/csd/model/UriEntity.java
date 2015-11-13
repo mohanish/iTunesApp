@@ -5,7 +5,7 @@ import com.orm.SugarRecord;
 /**
  * Created by root on 12/11/15.
  */
-public class UriEntity extends SugarRecord<UriEntity> {
+public class UriEntity {
 
     private String label;
 

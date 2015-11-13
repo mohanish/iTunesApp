@@ -5,25 +5,42 @@ import com.orm.SugarRecord;
 /**
  * Created by root on 11/11/15.
  */
-public class ContentTypeEntity extends SugarRecord<ContentTypeEntity> {
+public class ContentTypeEntity {
 
     /**
      * term : Application
      * label : Application
      */
 
-    private AttributesEntity attributes;
+    private ConentTypeAttributesEntity attributes;
 
-    public void setAttributes(AttributesEntity attributes) {
+    public void setAttributes(ConentTypeAttributesEntity attributes) {
         this.attributes = attributes;
     }
 
-    public AttributesEntity getAttributes() {
+    public ConentTypeAttributesEntity getAttributes() {
         return attributes;
     }
 
-    public static class AttributesEntity {
+    public static class ConentTypeAttributesEntity {
+        // Attributes used in ContentType Entity
+        private String term;
+        private String label;
 
+        public void setTerm(String term) {
+            this.term = term;
+        }
+
+        public void setLabel(String label) {
+            this.label = label;
+        }
+
+        public String getTerm() {
+            return term;
+        }
+
+        public String getLabel() {
+            return label;
+        }
     }
-
 }

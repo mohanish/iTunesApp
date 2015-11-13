@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.gson.Gson;
 import com.orm.SugarApp;
 import com.orm.SugarConfig;
 import com.orm.SugarDb;
@@ -20,6 +21,7 @@ import itunes.com.core.csd.ServiceName;
 import itunes.com.core.csd.applestore.IAppleStoreFacade;
 import itunes.com.core.csd.model.LinkEntity;
 import itunes.com.core.csd.model.NameEntity;
+import itunes.com.core.csd.model.persistance.Author;
 import itunes.com.core.csd.response.AppleStoreResponse;
 
 /**
@@ -56,13 +58,16 @@ public class TabTwoFragment extends BaseFragment {
             return;
         }
 
-        saveObjectsToDB(appleStoreResponse.getFeed().getAuthor());
-//        saveListsToDB((List<SugarRecord>) appleStoreResponse.getFeed().getLink());
-        saveObjectsToDB(appleStoreResponse.getFeed().getUpdated());
-        saveObjectsToDB(appleStoreResponse.getFeed().getRights());
-        saveObjectsToDB(appleStoreResponse.getFeed().getTitle());
-        saveObjectsToDB(appleStoreResponse.getFeed().getIcon());
-        saveObjectsToDB(appleStoreResponse.getFeed().getIdEntity());
+        Gson gson=new Gson();
+
+        saveObjectsToDB(new Author(gson.toJson(appleStoreResponse.getFeed().getAuthor())));
+        saveObjectsToDB(new Author(gson.toJson(appleStoreResponse.getFeed().getEntry())));
+        saveObjectsToDB(new Author(gson.toJson(appleStoreResponse.getFeed().getUpdated())));
+        saveObjectsToDB(new Author(gson.toJson(appleStoreResponse.getFeed().getRights())));
+        saveObjectsToDB(new Author(gson.toJson(appleStoreResponse.getFeed().getTitle())));
+        saveObjectsToDB(new Author(gson.toJson(appleStoreResponse.getFeed().getIcon())));
+        saveObjectsToDB(new Author(gson.toJson(appleStoreResponse.getFeed().getLink())));
+        saveObjectsToDB(new Author(gson.toJson(appleStoreResponse.getFeed().getIdEntity())));
 
     }
 
@@ -73,12 +78,6 @@ public class TabTwoFragment extends BaseFragment {
 
     void saveObjectsToDB(SugarRecord sugarEntity) {
         sugarEntity.save();
-    }
-
-    void saveListsToDB(List<SugarRecord> sugarEntityList) {
-        for (SugarRecord entityList : sugarEntityList) {
-            entityList.save();
-        }
     }
 
 }

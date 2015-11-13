@@ -3,6 +3,7 @@ package itunes.com.core.csd.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+
 import com.orm.SugarRecord;
 
 /**

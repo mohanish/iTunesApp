@@ -5,7 +5,7 @@ import com.orm.SugarRecord;
 /**
  * Created by root on 11/11/15.
  */
-public class SummaryEntity extends SugarRecord<SummaryEntity> {
+public class SummaryEntity {
 
     private String label;
 

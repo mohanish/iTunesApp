@@ -13,14 +13,45 @@ public class LinkEntity extends SugarRecord<LinkEntity> {
      * href : https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewTop?cc=us&id=25244&popId=27
      */
 
-    private AttributesEntity attributes;
+    private LinkAttributesEntity attributes;
 
-    public void setAttributes(AttributesEntity attributes) {
+    public void setAttributes(LinkAttributesEntity attributes) {
         this.attributes = attributes;
     }
 
-    public AttributesEntity getAttributes() {
+    public LinkAttributesEntity getAttributes() {
         return attributes;
+    }
+
+    public static class LinkAttributesEntity {
+        private String rel;
+        private String type;
+        private String href;
+
+        public void setRel(String rel) {
+            this.rel = rel;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public void setHref(String href) {
+            this.href = href;
+        }
+
+        public String getRel() {
+            return rel;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public String getHref() {
+            return href;
+        }
+
     }
 
 }

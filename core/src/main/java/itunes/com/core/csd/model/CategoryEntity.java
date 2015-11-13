@@ -1,11 +1,12 @@
 package itunes.com.core.csd.model;
 
+import com.google.gson.annotations.SerializedName;
 import com.orm.SugarRecord;
 
 /**
  * Created by root on 11/11/15.
  */
-public class CategoryEntity  extends SugarRecord<CategoryEntity> {
+public class CategoryEntity {
     /**
      * im:id : 6007
      * term : Productivity
@@ -13,14 +14,57 @@ public class CategoryEntity  extends SugarRecord<CategoryEntity> {
      * label : Productivity
      */
 
-    private AttributesEntity attributes;
+    private CategoryAttributesEntity attributes;
 
-    public void setAttributes(AttributesEntity attributes) {
+    public void setAttributes(CategoryAttributesEntity attributes) {
         this.attributes = attributes;
     }
 
-    public AttributesEntity getAttributes() {
+    public CategoryAttributesEntity getAttributes() {
         return attributes;
+    }
+
+    public static class CategoryAttributesEntity {
+
+        @SerializedName("im:id")
+        private String imid;
+        private String scheme;
+        private String term;
+        private String label;
+
+
+        public void setImid(String imid) {
+            this.imid = imid;
+        }
+
+        public String getImid() {
+            return imid;
+        }
+
+        public void setScheme(String scheme) {
+            this.scheme = scheme;
+        }
+
+        public String getScheme() {
+            return scheme;
+        }
+
+        public void setTerm(String term) {
+            this.term = term;
+        }
+
+        public void setLabel(String label) {
+            this.label = label;
+        }
+
+        public String getTerm() {
+            return term;
+        }
+
+        public String getLabel() {
+            return label;
+        }
+
     }
 
 }
